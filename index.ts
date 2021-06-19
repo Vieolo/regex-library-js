@@ -1,3 +1,5 @@
+//#region Time Regex
+
 /** Used in cases such as time expressions like 14:23 */
 export let hoursWithLeadingZero = /0{0}[0-23]{2}/;
 
@@ -12,5 +14,14 @@ export let time24Hours = new RegExp("^" + hoursWithLeadingZero.source + "\:" + m
 export let time24HoursWithSeconds = new RegExp("^" + hoursWithLeadingZero.source + "\:" + minutesWithLeadingZero.source + "\:" + minutesWithLeadingZero.source + "$");
 
 
+//#endregion
+
+
+
+//#region Email Regex
+
 /** Regex matching example@example.com */
 export let emailRegex = /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gm;
+
+
+//#endregion
