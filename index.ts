@@ -1,10 +1,10 @@
 //#region Time Regex
 
 /** Used in cases such as time expressions like 14:23 */
-export let hoursWithLeadingZero = /0{0}[0-23]{2}/;
+export let hoursWithLeadingZero = /0{0}([0-1]{1}[0-9]{1}|[2]{1}[0-3]{1})/;
 
 /** Used in cases such as time expressions like 14:23 */
-export let minutesWithLeadingZero = /0{0}[0-59]{2}/;
+export let minutesWithLeadingZero = /0{0}[0-5]{1}[0-9]{1}/;
 
 
 /** Regex matching 14:23 */
