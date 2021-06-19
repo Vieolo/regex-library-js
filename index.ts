@@ -10,3 +10,7 @@ export let time24Hours = new RegExp(hoursWithLeadingZero.source + "\:" + minutes
 
 /** Regex matching 14:23:56 */
 export let time24HoursWithSeconds = new RegExp(hoursWithLeadingZero.source + "\:" + minutesWithLeadingZero.source + "\:" + minutesWithLeadingZero.source);
+
+
+/** Regex matching example@example.com */
+export let emailRegex = /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gm;
