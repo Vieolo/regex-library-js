@@ -12,3 +12,13 @@ export let time24HoursWithSeconds = new RegExp("^" + hoursWithLeadingZero.source
 /** Regex matching example@example.com */
 export let emailRegex = /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gm;
 //#endregion
+//#region Address Regex
+/**
+ * Regex matching the post codes of addresses in Netherland
+ * A post code in Netherland, the last section before the name of the city, is made up of 4 numbers and 2 alphabets
+ * The first two number indicate the area, the second two numbers indicate the locality, and the two alphabets indicate the street
+ * Currently, the range of post codes are from 1011AA to 9999ZZ
+ * There can be a single white space between the four number part and two alphabet part. Hence, both `1013 AA` nad `1013AA` are valid.
+ */
+export let NetherlandsPostCode = /^((101[1-9]|10[2-9][0-9]|1[1-9][0-9][0-9]|[2-9][0-9][0-9][0-9])\s?(([A-Z]|[a-z]){2}))$/m;
+//#endregion
