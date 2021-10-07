@@ -8,6 +8,11 @@ module.exports = {
 		"/node_modules"
 	],
 	verbose: true,
+	transform: {
+		"^.+\\.ts?$": "ts-jest"
+	},
+	coverageReporters: ["text", 'html'],
+	extensionsToTreatAsEsm: [".ts", ".test.ts"]
 	/*coverageThreshold: {
 		global: {
 			branches: 100,
