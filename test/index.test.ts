@@ -1,10 +1,10 @@
 import {
-    emailRegex,
     hoursWithLeadingZero,
     minutesWithLeadingZero,
     time24Hours,
-    time24HoursWithSeconds
-} from './index';
+    time24HoursWithSeconds,
+    NetherlandsPostCode
+} from '../src/index';
 
 
 
@@ -82,6 +82,36 @@ describe("Regex Tests", () => {
         expect(time24HoursWithSeconds.test("18:42:00")).toBeTruthy();
         expect(time24HoursWithSeconds.test("04:05:06")).toBeTruthy();
 
+    })
+
+
+    it("Matches the Address regex correctly", () => {
+        // This regex does not enforce the start and the end of the string. So, if a match existing in the middle of a string, it returns true
+        expect(NetherlandsPostCode.test("")).toBeFalsy();
+        expect(NetherlandsPostCode.test("A")).toBeFalsy();
+        expect(NetherlandsPostCode.test("1")).toBeFalsy();
+        expect(NetherlandsPostCode.test("10")).toBeFalsy();
+        expect(NetherlandsPostCode.test("101")).toBeFalsy();
+        expect(NetherlandsPostCode.test("1000")).toBeFalsy();
+        expect(NetherlandsPostCode.test("1009")).toBeFalsy();
+        expect(NetherlandsPostCode.test("1009 AA")).toBeFalsy();
+        expect(NetherlandsPostCode.test("1009AA")).toBeFalsy();
+        expect(NetherlandsPostCode.test("1010 AA")).toBeFalsy();
+        expect(NetherlandsPostCode.test("1011")).toBeFalsy();
+        expect(NetherlandsPostCode.test("1011 A")).toBeFalsy();
+        expect(NetherlandsPostCode.test("1011 AA")).toBeTruthy();
+        expect(NetherlandsPostCode.test("1020AB")).toBeTruthy();
+        expect(NetherlandsPostCode.test("1099ZZ")).toBeTruthy();
+        expect(NetherlandsPostCode.test("1100 EW")).toBeTruthy();
+        expect(NetherlandsPostCode.test("1111 RA")).toBeTruthy();
+        expect(NetherlandsPostCode.test("1999GH")).toBeTruthy();
+        expect(NetherlandsPostCode.test("2999HG")).toBeTruthy();
+        expect(NetherlandsPostCode.test("3000za")).toBeTruthy();
+        expect(NetherlandsPostCode.test("9999Vb")).toBeTruthy();
+        expect(NetherlandsPostCode.test("9999vB")).toBeTruthy();
+        expect(NetherlandsPostCode.test("999vB")).toBeFalsy();
+        expect(NetherlandsPostCode.test("8765  AB")).toBeFalsy();
+        expect(NetherlandsPostCode.test("8765 ABZ")).toBeFalsy();
     })
 
 });

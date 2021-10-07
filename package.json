@@ -1,8 +1,8 @@
 {
   "name": "@vieolo/regex-library",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The library of regex expressions",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest --runInBand"
   },
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Vieolo/regex-library-js#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.15.8",
     "@types/jest": "^26.0.23",
     "jest": "^27.0.4",
     "ts-jest": "^27.0.3",
