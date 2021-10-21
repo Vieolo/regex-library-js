@@ -16,3 +16,17 @@ export declare let emailRegex: RegExp;
  * There can be a single white space between the four number part and two alphabet part. Hence, both `1013 AA` nad `1013AA` are valid.
  */
 export declare let NetherlandsPostCode: RegExp;
+/**
+ * Regex matching the texts allowed in the batch payment XML used for SEPA.
+ *
+ * The allowed characters are:
+ *
+ * a b c d e f g hi j k l m no p q r s t u v w x y z
+ * A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 01 2 3 4 5 6 7 8 9
+ * / - ? : ( ) .,+ & < > "
+ *
+ * Please note that [&, <, >, "] should be replaced with their XML representations: [&amp;, &lt;, &gt;, &quot;]
+ *
+ * Please note that beside this regex, the text cannot have two consecutive `/` (//) and cannot start or end with a `/`
+ */
+export declare let SEPAXMLTextRegex: RegExp;
