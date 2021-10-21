@@ -40,3 +40,24 @@ export let emailRegex = /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_
 export let NetherlandsPostCode = /^((101[1-9]|10[2-9][0-9]|1[1-9][0-9][0-9]|[2-9][0-9][0-9][0-9])\s?(([A-Z]|[a-z]){2}))$/m;
 
 //#endregion
+
+
+
+//#region SEPA regex
+
+/**
+ * Regex matching the texts allowed in the batch payment XML used for SEPA.
+ * 
+ * The allowed characters are:
+ * 
+ * a b c d e f g hi j k l m no p q r s t u v w x y z
+ * A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 01 2 3 4 5 6 7 8 9
+ * / - ? : ( ) .,+ & < > "
+ * 
+ * Please note that [&, <, >, "] should be replaced with their XML representations: [&amp;, &lt;, &gt;, &quot;]
+ * 
+ * Please note that beside this regex, the text cannot have two consecutive `/` (//) and cannot start or end with a `/`
+ */
+export let SEPAXMLTextRegex = /^[A-Za-z0-9\s/?:<>,+&"().-]+$|^$/
+
+//#endregion
