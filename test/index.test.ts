@@ -3,7 +3,8 @@ import {
     minutesWithLeadingZero,
     time24Hours,
     time24HoursWithSeconds,
-    NetherlandsPostCode
+    NetherlandsPostCode,
+    SEPAXMLTextRegex
 } from '../src/index';
 
 
@@ -112,6 +113,20 @@ describe("Regex Tests", () => {
         expect(NetherlandsPostCode.test("999vB")).toBeFalsy();
         expect(NetherlandsPostCode.test("8765  AB")).toBeFalsy();
         expect(NetherlandsPostCode.test("8765 ABZ")).toBeFalsy();
+    })
+
+    it("Matched SEPA XML text correctly", () => {
+        expect(SEPAXMLTextRegex.test("")).toBeTruthy();
+        expect(SEPAXMLTextRegex.test("8765 ABZ")).toBeTruthy();
+        expect(SEPAXMLTextRegex.test("Note: Senders must ensure that the content of Identifiers/reference data elements is restricted to the restricted basic Latin character set (across). If non supported characters are used in these fields they may lead to rejection of files or transactions in the payment chain.")).toBeTruthy();
+        expect(SEPAXMLTextRegex.test('a b c d e f g hi j k l m no p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 / - ? : ( ) . , + & < > "')).toBeTruthy();
+        expect(SEPAXMLTextRegex.test("Vieolo OÜ")).toBeFalsy();
+        expect(SEPAXMLTextRegex.test("'")).toBeFalsy();
+        expect(SEPAXMLTextRegex.test("`")).toBeFalsy();
+        expect(SEPAXMLTextRegex.test("_")).toBeFalsy();
+        expect(SEPAXMLTextRegex.test("!")).toBeFalsy();
+        expect(SEPAXMLTextRegex.test(";")).toBeFalsy();
+        expect(SEPAXMLTextRegex.test("Optionally, if the personal account or organization in which you're creating uses any GitHub Apps from GitHub Marketplace, select any apps you'd like to use in the repository.")).toBeFalsy();        
     })
 
 });
