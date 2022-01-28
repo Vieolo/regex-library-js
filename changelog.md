@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.1.3 (2022-01-28)
+- Added date regex for `YYYY-MM-DD`, `DD/MM/YYYY`, and `MM/DD/YYYY`
+
 ### 0.1.2 (2021-10-21)
 
 - Added `SEPAXMLTextRegex` regex

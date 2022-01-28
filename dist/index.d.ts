@@ -6,6 +6,12 @@ export declare let minutesWithLeadingZero: RegExp;
 export declare let time24Hours: RegExp;
 /** Regex matching 14:23:56 */
 export declare let time24HoursWithSeconds: RegExp;
+/** Regex matching 2020-12-24 */
+export declare let dateYYYYMMDD: RegExp;
+/** Regex matching 24/12/2020 */
+export declare let dateDDMMYYYY: RegExp;
+/** Regex matching 12/24/2020 */
+export declare let dateMMDDYYYY: RegExp;
 /** Regex matching example@example.com */
 export declare let emailRegex: RegExp;
 /**
