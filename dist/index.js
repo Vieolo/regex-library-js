@@ -8,6 +8,14 @@ export let time24Hours = new RegExp("^" + hoursWithLeadingZero.source + "\:" + m
 /** Regex matching 14:23:56 */
 export let time24HoursWithSeconds = new RegExp("^" + hoursWithLeadingZero.source + "\:" + minutesWithLeadingZero.source + "\:" + minutesWithLeadingZero.source + "$");
 //#endregion
+//#region Date Regex
+/** Regex matching 2020-12-24 */
+export let dateYYYYMMDD = /^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/m;
+/** Regex matching 24/12/2020 */
+export let dateDDMMYYYY = /^((0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/[12]\d{3})$/m;
+/** Regex matching 12/24/2020 */
+export let dateMMDDYYYY = /^((0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/[12]\d{3})$/m;
+//#endregion
 //#region Email Regex
 /** Regex matching example@example.com */
 export let emailRegex = /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gm;

@@ -5,7 +5,7 @@ The library package containing the widely used regex expressions
 to install, add the following to the `dependency` key of the `package.json` file of the project.
 
 ```json
-"@vieolo/regex-library": "github:Vieolo/regex-library-js#0.1.2"
+"@vieolo/regex-library": "github:Vieolo/regex-library-js#0.1.3"
 ```
 
 ## Usage
