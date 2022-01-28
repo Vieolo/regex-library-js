@@ -17,6 +17,19 @@ export let time24HoursWithSeconds = new RegExp("^" + hoursWithLeadingZero.source
 //#endregion
 
 
+//#region Date Regex
+
+/** Regex matching 2020-12-24 */
+export let dateYYYYMMDD = /^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/m;
+
+/** Regex matching 24/12/2020 */
+export let dateDDMMYYYY = /^((0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/[12]\d{3})$/m;
+
+/** Regex matching 12/24/2020 */
+export let dateMMDDYYYY = /^((0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/[12]\d{3})$/m;
+
+//#endregion
+
 
 //#region Email Regex
 

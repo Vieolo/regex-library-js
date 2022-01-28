@@ -3,6 +3,9 @@ import {
     minutesWithLeadingZero,
     time24Hours,
     time24HoursWithSeconds,
+    dateDDMMYYYY,
+    dateMMDDYYYY,
+    dateYYYYMMDD,
     NetherlandsPostCode,
     SEPAXMLTextRegex
 } from '../src/index';
@@ -82,6 +85,57 @@ describe("Regex Tests", () => {
         expect(time24HoursWithSeconds.test("23:59:59")).toBeTruthy();
         expect(time24HoursWithSeconds.test("18:42:00")).toBeTruthy();
         expect(time24HoursWithSeconds.test("04:05:06")).toBeTruthy();
+
+    })
+
+
+    it("Matched the Date regex correctly", () => {
+
+        // YYYY-MM-DD
+        expect(dateYYYYMMDD.test('2020-10-10')).toBeTruthy();
+        expect(dateYYYYMMDD.test('2020-12-31')).toBeTruthy();
+        expect(dateYYYYMMDD.test('2020-01-01')).toBeTruthy();
+        expect(dateYYYYMMDD.test('2020-1-10')).toBeFalsy();
+        expect(dateYYYYMMDD.test('2020-10-1')).toBeFalsy();
+        expect(dateYYYYMMDD.test('2020-13-10')).toBeFalsy();
+        expect(dateYYYYMMDD.test('2020-10-32')).toBeFalsy();
+        expect(dateYYYYMMDD.test('2020-10-100')).toBeFalsy();
+        expect(dateYYYYMMDD.test('12020-10-10')).toBeFalsy();
+        expect(dateYYYYMMDD.test('2020--10-10')).toBeFalsy();
+        expect(dateYYYYMMDD.test('2020-10--10')).toBeFalsy();
+        expect(dateYYYYMMDD.test('2020/10/10')).toBeFalsy();
+
+
+        // DD-MM-YYYY
+        expect(dateDDMMYYYY.test('10/10/2020')).toBeTruthy();
+        expect(dateDDMMYYYY.test('31/12/2020')).toBeTruthy();
+        expect(dateDDMMYYYY.test('01/01/2020')).toBeTruthy();
+        expect(dateDDMMYYYY.test('10/1/2020')).toBeFalsy();
+        expect(dateDDMMYYYY.test('1/10/2020')).toBeFalsy();
+        expect(dateDDMMYYYY.test('10/13/2020')).toBeFalsy();
+        expect(dateDDMMYYYY.test('32/10/2020')).toBeFalsy();
+        expect(dateDDMMYYYY.test('100/10/2020')).toBeFalsy();
+        expect(dateDDMMYYYY.test('10/100/2020')).toBeFalsy();
+        expect(dateDDMMYYYY.test('10/10/12020')).toBeFalsy();
+        expect(dateDDMMYYYY.test('10//10/2020')).toBeFalsy();
+        expect(dateDDMMYYYY.test('10/10//2020')).toBeFalsy();
+        expect(dateDDMMYYYY.test('10-10-2020')).toBeFalsy();
+
+
+        // MM-DD-YYYY
+        expect(dateMMDDYYYY.test('10/10/2020')).toBeTruthy();
+        expect(dateMMDDYYYY.test('12/31/2020')).toBeTruthy();
+        expect(dateMMDDYYYY.test('01/01/2020')).toBeTruthy();
+        expect(dateMMDDYYYY.test('1/10/2020')).toBeFalsy();
+        expect(dateMMDDYYYY.test('10/1/2020')).toBeFalsy();
+        expect(dateMMDDYYYY.test('13/10/2020')).toBeFalsy();
+        expect(dateMMDDYYYY.test('10/32/2020')).toBeFalsy();
+        expect(dateMMDDYYYY.test('100/10/2020')).toBeFalsy()
+        expect(dateMMDDYYYY.test('10/100/2020')).toBeFalsy();
+        expect(dateMMDDYYYY.test('10/10/12020')).toBeFalsy();
+        expect(dateMMDDYYYY.test('10//10/2020')).toBeFalsy();
+        expect(dateMMDDYYYY.test('10/10//2020')).toBeFalsy();
+        expect(dateMMDDYYYY.test('10-10-2020')).toBeFalsy();
 
     })
 
