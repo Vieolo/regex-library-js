@@ -4,7 +4,8 @@
   "description": "The library of regex expressions",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "build": "npx tsc"
   },
   "repository": {
     "type": "git",
