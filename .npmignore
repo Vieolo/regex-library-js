@@ -1,0 +1,4 @@
+version_bump.mjs
+jest.config.js
+coverage
+.vscode
