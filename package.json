@@ -1,6 +1,6 @@
 {
   "name": "@vieolo/regex-library",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "The library of regex expressions",
   "main": "dist/index.js",
   "scripts": {
