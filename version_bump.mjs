@@ -36,24 +36,6 @@ packageJSON.version = fv;
 fs.writeFileSync('./package.json', JSON.stringify(packageJSON, null, 2));
 
 
-// Updating the ReadMe file
-let readMe = fs.readFileSync('./README.md').toString();
-let readMeLines = readMe.split('\n');
-/** @type {string[]} */
-let readMeNewLines = [];
-
-// TODO: replace the package name with the actual name from README file
-for (let i = 0; i < readMeLines.length; i++) {
-    const line = readMeLines[i];
-    if (line.includes(`"@vieolo/regex-library": "github:Vieolo`)) {
-        readMeNewLines.push(`"@vieolo/regex-library": "github:Vieolo/regex-library-js#${fv}"`)
-    } else {
-        readMeNewLines.push(line);
-    }
-}
-
-fs.writeFileSync('./README.md', readMeNewLines.join('\n'));
-
 
 // Adding lines to the Change Log
 let changelog = fs.readFileSync('./changelog.md').toString();
