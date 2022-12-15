@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.0 (2022-12-15)
+- Improved the email regex
+
+#### Breaking Changes
+- `emailRegex` is now `emailRegexStandalone` and `emailRegexMix`
+
 ## 0.1.4 (2022-05-06)
 - Improved the package structure
 
