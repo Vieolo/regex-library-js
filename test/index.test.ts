@@ -7,7 +7,9 @@ import {
     dateMMDDYYYY,
     dateYYYYMMDD,
     NetherlandsPostCode,
-    SEPAXMLTextRegex
+    SEPAXMLTextRegex,
+    emailRegexMix,
+    emailRegexStandAlone,
 } from '../src/index';
 
 
@@ -86,6 +88,16 @@ describe("Regex Tests", () => {
         expect(time24HoursWithSeconds.test("18:42:00")).toBeTruthy();
         expect(time24HoursWithSeconds.test("04:05:06")).toBeTruthy();
 
+    })
+
+
+    it("Matches the Time regex correctly", () => {
+        
+        expect(emailRegexStandAlone.test("example@example.com")).toBeTruthy();
+        expect(emailRegexStandAlone.test("Example._-1234@Exa.co.UK")).toBeTruthy();                
+        expect(emailRegexStandAlone.test("Example._-1234@Exa.co.UK ssds")).toBeFalsy();                
+        expect(emailRegexMix.test("sd Example._-1234@Exa.co.UK ssds")).toBeTruthy();                
+        expect(emailRegexStandAlone.test("Example._-1234@Exa")).toBeFalsy();                
     })
 
 
