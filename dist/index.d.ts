@@ -12,8 +12,10 @@ export declare let dateYYYYMMDD: RegExp;
 export declare let dateDDMMYYYY: RegExp;
 /** Regex matching 12/24/2020 */
 export declare let dateMMDDYYYY: RegExp;
-/** Regex matching example@example.com */
-export declare let emailRegex: RegExp;
+/** Regex matching an email address, anywhere in the text */
+export declare let emailRegexMix: RegExp;
+/** Regex matching an email address, with no other text allowed in the subject*/
+export declare let emailRegexStandAlone: RegExp;
 /**
  * Regex matching the post codes of addresses in Netherland
  * A post code in Netherland, the last section before the name of the city, is made up of 4 numbers and 2 alphabets

@@ -18,7 +18,11 @@ export let dateMMDDYYYY = /^((0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/[12]\d{3})$
 //#endregion
 //#region Email Regex
 /** Regex matching example@example.com */
-export let emailRegex = /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gm;
+let emailRegexRaw = /[A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9]*[A-Za-z0-9])?/;
+/** Regex matching an email address, anywhere in the text */
+export let emailRegexMix = new RegExp(emailRegexRaw.source);
+/** Regex matching an email address, with no other text allowed in the subject*/
+export let emailRegexStandAlone = new RegExp("^" + emailRegexRaw.source + "$");
 //#endregion
 //#region Address Regex
 /**
